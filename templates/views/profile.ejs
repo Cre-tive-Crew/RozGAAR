@@ -32,7 +32,7 @@
     <div>
       <nav class="navbar navbar-default navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="/">
-          <img src="/img/Rozgaar-logo.jpg" width="30" height="25"
+          <img src="/img/Rozgaar-logo.png" width="30" height="25"
         /></a>
 
         <a class="navbar-brand" id="lol" href="/">Roz<b>GAAR</b></a>
@@ -160,10 +160,23 @@
       </div>
     </div>
 
+    <div id="modal-wrapper" class="modal">
+      <form class="modal-content animate">
+        <h3 style="color: #254e58">Who Are We</h3>
+        <br />
+
+        <span
+          onclick="document.getElementById('modal-wrapper').style.display='none'"
+          class="close"
+          title="Close PopUp"
+          >&times;</span
+        >
+      </form>
+    </div>
     <div id="modal-wrapper1" class="modal">
       <form class="modal-content animate" id="m1">
-        <h3 style="color: red">Terms and Conditions:</h3>
-        <h4>Welcome to RojGAAR!</h4>
+        <h3 style="color: #254e58">Terms and Conditions</h3>
+        <h4>Welcome to RozGAAR!</h4>
         <span
           onclick="document.getElementById('modal-wrapper1').style.display='none'"
           class="close"
@@ -171,6 +184,11 @@
           >&times;</span
         >
       </form>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="heading"></div>
+      </div>
     </div>
 
     <button onclick="topFunction()" id="myBtn" title="Go to top">
@@ -180,18 +198,18 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-4">
-            <a href="https://github.com/avasthiayush" style="color: white"
+            <a href="https://github.com/avasthiayush" style="color: #254e58"
               ><i class="fa fa-github" aria-hidden="true"></i> Visit us
             </a>
           </div>
           <div class="col-xl-4">
             <a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=xyz@gmail.com&su=SUBJECT&body=BODY"
-              style="color: white"
+              style="color: #254e58"
               ><i
                 class="fa fa-envelope"
                 aria-hidden="false"
-                style="color: white"
+                style="color: #254e58"
               ></i>
               Mail us for any query</a
             >
@@ -200,8 +218,13 @@
             <a
               href="#terms&conditions"
               onclick="document.getElementById('modal-wrapper1').style.display='block'"
-              style="color: white"
-              >Terms &amp; Conditions</a
+              style="color: #254e58"
+              ><i
+                class="fa fa-laptop"
+                aria-hidden="false"
+                style="color: #254e58"
+              ></i>
+              Terms &amp; Conditions</a
             >
           </div>
         </div>

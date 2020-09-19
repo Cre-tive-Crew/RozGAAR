@@ -1,115 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>RozGAAR</title>
-        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/css/home-style.css">
-    </head>
-    <body>
-        <div>
-            <nav class="navbar  navbar-default  navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="/">
-                <img src="/img/Rozgaar-logo.jpg" width="30" height="25"></a>
-                <a class="navbar-brand" id="lol" href="/">Roz<b>GAAR</b></a> 
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div id="navbarCollapse" class="navbar-collapse justify-content-start collapse in" aria-expanded="true">
-                    <ul class="nav navbar-nav">
-                        <li class="nav-item"><a href="#about" onclick="document.getElementById('modal-wrapper').style.display='block'" class="nav-link" id="node">About</a></li>
-                        <li class="nav-item"><a href="#contact/to/us" class="nav-link" id="node">Contact</a></li>
-                    </ul>
-                    <% if(!user) {%>
-                    <ul class="nav navbar-nav navbar-right ml-auto">
-                        <li class="nav-item">
-                            <a  class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" id="lop" href="/auth/login" aria-expanded="false" style="text-align: center">Login</a>
-                            <a  class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" id="lop" href="/auth/signup" aria-expanded="false" style="text-align: center">Signup</a>
-                        </li>
-                    </ul>
-                    <% } %>
-                    <% if(user) {%>
-                        <ul class="nav navbar-nav navbar-right ml-auto">
-                            <li class="nav-item">
-                                <a  class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" id="lop" href="/users/profile" aria-expanded="false" style="text-align: center">Profile</a>
-                                <a  class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" id="lop" href="/auth/logout" aria-expanded="false" style="text-align: center">Logout</a>
-                            </li>
-                        </ul>
-                    <%} %>
-                </div>
-            </nav>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>RozGAAR</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Varela+Round"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/home-style.css" />
+  </head>
+  <body>
+    <div>
+      <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/">
+          <img src="/img/Rozgaar-logo.png" width="30" height="25"
+        /></a>
+        <a class="navbar-brand" id="lol" href="/">Roz<b>GAAR</b></a>
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          id="navbarCollapse"
+          class="navbar-collapse justify-content-start collapse in"
+          aria-expanded="true"
+        >
+          <ul class="nav navbar-nav">
+            <li class="nav-item">
+              <a
+                href="#about"
+                onclick="document.getElementById('modal-wrapper').style.display='block'"
+                class="nav-link"
+                id="node"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#contact/to/us" class="nav-link" id="node">Contact</a>
+            </li>
+          </ul>
+          <% if(!user) {%>
+          <ul class="nav navbar-nav navbar-right ml-auto">
+            <li class="nav-item">
+              <a
+                class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1"
+                id="lop"
+                href="/auth/login"
+                aria-expanded="false"
+                style="text-align: center"
+                >Login</a
+              >
+              <a
+                class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1"
+                id="lop"
+                href="/auth/signup"
+                aria-expanded="false"
+                style="text-align: center"
+                >Signup</a
+              >
+            </li>
+          </ul>
+          <% } %> <% if(user) {%>
+          <ul class="nav navbar-nav navbar-right ml-auto">
+            <li class="nav-item">
+              <a
+                class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1"
+                id="lop"
+                href="/users/profile"
+                aria-expanded="false"
+                style="text-align: center"
+                >Profile</a
+              >
+              <a
+                class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1"
+                id="lop"
+                href="/auth/logout"
+                aria-expanded="false"
+                style="text-align: center"
+                >Logout</a
+              >
+            </li>
+          </ul>
+          <%} %>
         </div>
-        <div id="modal-wrapper" class="modal">
-            <form class="modal-content animate" >
-                <h3 style="color: red;"> Who Are We</h3><br>
-        
-               <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
-            
-            </form>
-        </div>
+      </nav>
+    </div>
+    <div id="modal-wrapper" class="modal">
+      <form class="modal-content animate">
+        <h3 style="color: #254e58">Who Are We</h3>
+        <br />
+
+        <span
+          onclick="document.getElementById('modal-wrapper').style.display='none'"
+          class="close"
+          title="Close PopUp"
+          >&times;</span
+        >
+      </form>
+    </div>
     <div id="modal-wrapper1" class="modal">
-        <form class="modal-content animate" id="m1">
-            <h3 style="color: red;"> Terms and Conditions:</h3>
-            <h4> Welcome to RozGAAR!</h4>
-            <span onclick="document.getElementById('modal-wrapper1').style.display='none'" class="close" title="Close PopUp">&times;</span>
-        </form>
+      <form class="modal-content animate" id="m1">
+        <h3 style="color: #254e58">Terms and Conditions</h3>
+        <h4>Welcome to RozGAAR!</h4>
+        <span
+          onclick="document.getElementById('modal-wrapper1').style.display='none'"
+          class="close"
+          title="Close PopUp"
+          >&times;</span
+        >
+      </form>
     </div>
     <div class="container">
+      <div class="row">
+        <div class="heading"></div>
+      </div>
+    </div>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
+    <footer class="footer1" id="contact/to/us">
+      <div class="container">
         <div class="row">
-            <div class="heading"></div>
+          <div class="col-xl-4">
+            <a href="https://github.com/avasthiayush" style="color: #254e58"
+              ><i class="fa fa-github" aria-hidden="true"></i> Visit us
+            </a>
+          </div>
+          <div class="col-xl-4">
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=xyz@gmail.com&su=SUBJECT&body=BODY"
+              style="color: #254e58"
+              ><i
+                class="fa fa-envelope"
+                aria-hidden="false"
+                style="color: #254e58"
+              ></i>
+              Mail us for any query</a
+            >
+          </div>
+          <div class="col-xl-4">
+            <a
+              href="#terms&conditions"
+              onclick="document.getElementById('modal-wrapper1').style.display='block'"
+              style="color: #254e58"
+              ><i
+                class="fa fa-laptop"
+                aria-hidden="false"
+                style="color: #254e58"
+              ></i>
+              Terms &amp; Conditions</a
+            >
+          </div>
         </div>
-    </div>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
-<footer class="footer1" id="contact/to/us">
-    <div class="container">
+      </div>
+    </footer>
+    <footer class="footer2">
+      <div class="container">
         <div class="row">
-            <div class="col-xl-4">
-                <a href="https://github.com/avasthiayush" style="color: white;"><i class="fa fa-github" aria-hidden="true"></i> Visit us </a>
-               </div>
-               <div class="col-xl-4">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=xyz@gmail.com&su=SUBJECT&body=BODY" style="color: white;"><i class="fa fa-envelope" aria-hidden="false" style="color: white;"></i> Mail us for any query</a>
-               </div>
-               <div class="col-xl-4">
-                <a href="#terms&conditions" onclick="document.getElementById('modal-wrapper1').style.display='block'" style="color: white;">Terms &amp; Conditions</a>
-               </div>
-            </div>
-    </div>
-</footer>
-<footer class="footer2">
-    <div class="container">
-        <div class="row">
-            <div class=" col-xl-12">
-                Copyright © 2020 Creative_Crew
-             </div>
+          <div class="col-xl-12">Copyright © 2020 Creative_Crew</div>
         </div>
-    </div>
- </footer>
-  <script src="homepage.js"></script>
-
-</body>
+      </div>
+    </footer>
+    <script src="homepage.js"></script>
+  </body>
 </html>

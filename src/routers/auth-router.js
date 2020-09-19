@@ -15,7 +15,7 @@ router.get('/logout',(req,res)=>{
 
 router.get('/google', passpost.authenticate(
     'google' ,{
-        scope : ['profile']
+        scope : ['profile' , 'email']
     }
 ))
 
