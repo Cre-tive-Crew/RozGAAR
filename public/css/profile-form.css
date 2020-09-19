@@ -503,6 +503,19 @@ body {
   border: 1px solid #254e58;
   padding-bottom: 4px;
 }
+
+.btnRegister1 {
+  float: right;
+  margin-top: 10%;
+  border: none;
+  padding: 2%;
+  background: #bfbfbf;
+  color: #fff;
+  font-weight: 600;
+  width: 50%;
+  cursor: pointer;
+}
+
 .register .nav-tabs {
   margin-top: 3%;
   border: none;

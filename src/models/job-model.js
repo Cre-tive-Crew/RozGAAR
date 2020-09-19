@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 const jobSchema = new Schema({
     jd:String,      //job description
     jobType:String,
-    // job_poster:{
-    //     type: mongoose.Schema.Types.ObjectId
-    // },
+    contact:String,
+    ownerName:String,
+    ownerAdress:String,
     ownerID : String 
 });
 

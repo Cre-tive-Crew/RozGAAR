@@ -422,7 +422,7 @@ body {
 a {
   text-decoration: none;
 }
-
+/* 
 .carousel,
 .item,
 .active {
@@ -456,11 +456,7 @@ a {
   position: absolute;
   font-size: x-large;
   font-weight: bold;
-}
-.slider1 {
-  background: url("/img/img1.jpg");
-}
-
+} */
 
 .head2 .btn-primary,
 .head2 .btn-primary:active {
@@ -487,22 +483,39 @@ a {
 
 @media (max-width: 599px) {
   .head2 .btn-primary,
-.head2 .btn-primary:active {
-  width: 22%;
-  font-size: 20px;
-}
-.heading,.cont{
-  font-size: 25px;
-}
+  .head2 .btn-primary:active {
+    width: 22%;
+    font-size: 20px;
+  }
+  .heading,
+  .cont {
+    font-size: 25px;
+  }
 }
 
 @media (max-width: 399px) {
   .head2 .btn-primary,
-.head2 .btn-primary:active {
-  width: 30%;
-  font-size: 17px;
+  .head2 .btn-primary:active {
+    width: 30%;
+    font-size: 17px;
+  }
+  .heading,
+  .cont {
+    font-size: 20px;
+  }
 }
-.heading,.cont{
-  font-size: 20px;
+
+#slide1 {
+  background: url("/img/1.jpg") center no-repeat;
 }
-}  
+#slide2 {
+  background: url("/img/2.jpg") center no-repeat;
+}
+
+#slide3 {
+  background: url("/img/3.jpg") center no-repeat;
+}
+
+#carouselExampleControls .carousel-item {
+  height: 600px;
+}

@@ -141,35 +141,40 @@
         class="carousel slide"
         data-ride="carousel"
       >
-        <div class="carousel-inner slider1" role="listbox">
+        <ol class="carousel-indicators">
+          <li
+            class="active"
+            data-slide-to="0"
+            data-target="#carouselExampleControls"
+          ></li>
+          <li data-slide-to="1" data-target="#carouselExampleControls"></li>
+          <li data-slide-to="2" data-target="#carouselExampleControls"></li>
+        </ol>
+        <div class="carousel-inner" id="slide1">
           <div class="carousel-item active">
-            <div class="d-flex align-items-center min-vh-100">
-              <div class="container" style="text-align: center; margin-right: 40px; margin-left: 10%;">
+            <!--<div class="d-flex align-items-center min-vh-100">
+               <div
+                class="container"
+                style="text-align: center; margin-right: 40px; margin-left: 10%"
+              >
                 <div class="align-items-center justify-content-center">
-                  <a href=""><h1 class="display-1" style="color: red;">ONE</h1></a>
+                  <a href=""
+                    ><h1 class="display-1" style="color: red">ONE</h1></a
+                  >
                 </div>
-                <p class="" style="padding-left: 0px; padding-right: 8%; color: #1979a9;">
+                <p
+                  class=""
+                  style="padding-left: 0px; padding-right: 8%; color: #1979a9"
+                >
                   There are many variations of passages of Lorem Ipsum
                   available, but the majority have suffered alteration in some
                   form,dff fjj
                 </p>
-              </div>
-            </div>
+              </div> 
+            </div>-->
           </div>
-          <div class="carousel-item">
-            <div class="d-flex align-items-center min-vh-100">
-              <div class="container" style="text-align: center; margin-right: 40px; margin-left: 10%;">
-                <div class="align-items-center justify-content-center">
-                  <a href=""><h1 class="display-1" style="color: red;"> Two </h1></a>
-                </div>
-                <p class="" style="padding-left: 0px; padding-right: 8%; color: #1979a9;">
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered alteration in some
-                  form,dff fjj
-                </p>
-              </div>
-            </div>
-          </div>
+          <div class="carousel-item" id="slide2"></div>
+          <div class="carousel-item" id="slide3"></div>
         </div>
         <a
           class="carousel-control-prev"

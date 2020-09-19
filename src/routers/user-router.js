@@ -29,8 +29,6 @@ router.post('/user-worker' ,authCheck, async (req,res)=>{
          if(job in req.body && !user.jobTypes.includes(job)) user.jobTypes.push(job)
      })
      await user.save()
-    console.log(user)
-    console.log(req.body)
     res.redirect('/users/profile')
 })
 
@@ -44,7 +42,6 @@ router.post('/user-recruiter' ,authCheck, async (req,res)=>{
     user.type="recruiter"
     req.user=user
     await user.save()
-    console.log(user)
     res.redirect('/users/profile')
 })
 
@@ -58,7 +55,6 @@ router.get('/users/profile' , authCheck ,profileCheck ,(req,res)=>{
 })
 
 router.get('/users/jobs', authCheck , profileCheck , async (req,res)=>{
-    
      const jobs = await Job.find({ownerID : req.user.googleID})    
      res.render('myjobs',{ user:req.user , jobs:jobs})
 });

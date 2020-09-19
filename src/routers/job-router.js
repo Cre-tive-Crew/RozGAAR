@@ -1,12 +1,11 @@
 const express= require('express')
+const mongoose = require('mongoose')
 const Job = require('../models/job-model')
 const router = express.Router()
 
 
 router.post('/users/newjobs/jobs' , async (req,res)=>{
-     
-    console.log(req.body)
-
+   
     await Job.findOne( { jobType:req.body.jobType , ownerID:req.user.googleID } ) .then((currentJob)=>{
         if(currentJob)
              res.redirect('/users/jobs') 
@@ -14,12 +13,27 @@ router.post('/users/newjobs/jobs' , async (req,res)=>{
             new Job({
                 jd:req.body.jd,
                 jobType:req.body.jobType,    
-                ownerID:req.user.googleID  
+                ownerID:req.user.googleID,
+                contact:req.user.contact1,
+                ownerName:req.user.username,
+                ownerAdress:req.user.address
              }).save().then( 
                 res.redirect('/users/jobs')    
-             ) 
+             )
         }
     })
+})
+
+router.post('/jobs/delete', async (req,res)=>{
+    console.log(req.body);
+    try{
+      await Job.findOneAndDelete( { _id: mongoose.Types.ObjectId(req.body._id) } )
+    }
+    catch(err){
+       console.log(err);
+    }
+    
+    res.redirect('/users/jobs')
 })
 
 router.get('/jobs',async (req,res)=>{

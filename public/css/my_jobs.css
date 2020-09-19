@@ -1,19 +1,20 @@
 @import "home-style.css";
 
 .footer2 {
-  position: fixed;
+  /* position: fixed;
   bottom: 0px;
   left: 0px;
-  right: 0px;
+  right: 0px; */
   margin-bottom: 0px;
 }
 
 .footer1 {
-  position: fixed;
+  /* position: fixed;
   bottom: 43px;
   left: 0px;
-  right: 0px;
+  right: 0px; */
   margin-bottom: 0px;
+  margin-top: 60px;
 }
 
 #user .avatar {
@@ -75,8 +76,12 @@
   height: 420px;
 }
 
+.rrr {
+  margin-top: 430px;
+}
+
 #results th {
-  width: 33%;
+  width: 45%;
 }
 
 /* for checkboxes */
@@ -174,4 +179,9 @@
   font-weight: bold;
   background: rgba(232, 243, 234, 0.6);
   border: 1px solid #254e58;
+}
+
+.btnn {
+  float: right;
+  margin-top: 0%;
 }

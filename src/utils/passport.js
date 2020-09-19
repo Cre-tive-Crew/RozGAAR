@@ -33,7 +33,7 @@ passport.use(
                     thumbnail: profile._json.picture,
                     email : profile._json.email
                 }).save().then((newUser)=>{
-                    console.log('new user is created ', newUser)
+                    console.log('new user is created ')
                     done(null ,newUser)
                 })   
             }

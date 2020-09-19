@@ -111,13 +111,15 @@
             <div class="panel-heading" style="padding: 15px">
               <div class="row">
                 <div class="col col-md-3 text-center">
-                  <h2 class="panel-title aj">Heading 1</h2>
+                  <h2 class="panel-title aj">My Jobs</h2>
                 </div>
-                <div
-                  class="col col-md-7 well text-center"
-                  style="padding: 0px; width: 100%"
-                >
-                  <div style="float: right; top: 5px">
+                <div class="col col-md-8 text-right btnn">
+                  <a href="/users/newjobs" type="button" class="btn btn-success">
+                    Add New <i class="fa fa-plus-square"></i>
+                  </a>
+                </div>
+
+                <!-- <div style="float: right; top: 5px">
                     <a
                       class="btn btn-primary get-started-btn mt-1 mb-1"
                       id="lop"
@@ -163,12 +165,7 @@
                     />
                     <label for="checkbox3"><span>Gardener</span></label>
                   </div>
-                </div>
-                <div class="col col-md-2 text-right">
-                  <button type="button" class="btn btn-success">
-                    Add New <i class="fa fa-plus-square"></i>
-                  </button>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="panel-body">
@@ -182,94 +179,38 @@
                     <thead>
                       <tr>
                         <th class="avatar" width="7%"></th>
-                        <th width="10%">Job Type</th>
                         <th width="20%">Job Title</th>
-                        <th width="50%">Description</th>
+                        <th width="70%">Description</th>
                         <th><em class="fa fa-cog"></em></th>
                       </tr>
                     </thead>
                     <tbody scrollbars="yes">
+                      <% jobs.forEach((job)=>{%>
+
                       <tr class="ok">
                         <td class="avatar">
-                          <img
-                            src="https://pbs.twimg.com/profile_images/746779035720683521/AyHWtpGY_400x400.jpg"
-                          />
+                          <%if(job.jobType=='gardener') {%> <img src='/img/Gardener.jpg'/> <%}
+                          else if(job.jobType=='painter') {%> <img src='/img/Painter.jpg'/> <%}
+                          else if(job.jobType=='watchman') {%> <img src='/img/Watchman.jpg'/> <%}
+                          else {%> <img src='/img/Maid.jpg'/> <%}%>
                         </td>
-                        <td class="aj">type1</td>
-                        <td class="aj">Job title 1</td>
+                        
+                        <td class="aj" id="jobType" style='text-transform: capitalize;'> <%= job.jobType %> </td>
                         <td class="aj">
-                          It is a long established fact that a reader will be
-                          distracted by the readable content of a page when
-                          looking at its layout.
+                          <%= job.jd%>
                         </td>
                         <td align="center">
-                          <a href="#" class="btn btn-danger" title="delete"
-                            ><i class="fa fa-trash"></i
-                          ></a>
+                          <form method="POST" action="/jobs/delete" id="jobdeleteF">
+                            <input type='hidden' name='_id' id="jobID" value= <%= job._id %> >
+                            </input>
+                            <button for='#jobdeleteF' class="btn btn-danger" title="delete" type="submit" id='jobdeleteD' > 
+                             <i class='fa fa-trash'></i>
+                            </button>
+                          
+                        </form>
                         </td>
                       </tr>
-                      <tr class="ban">
-                        <td class="avatar">
-                          <img
-                            src="https://images.unsplash.com/photo-1509668521827-dd7d42a587e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                          />
-                        </td>
-                        <td class="aj">type2</td>
-                        <td class="aj">Job title 2</td>
-                        <td class="aj">
-                          It is a long established fact that a reader will be.
-                        </td>
-                        <td align="center">
-                          <a href="#" class="btn btn-danger" title="delete"
-                            ><i class="fa fa-trash"> </i
-                          ></a>
-                        </td>
-                      </tr>
-                      <tr class="ban">
-                        <td class="avatar">
-                          <img src="" />
-                        </td>
-                        <td class="aj">type2</td>
-                        <td class="aj">Job title 2</td>
-                        <td class="aj">
-                          It is a long established fact that a reader will be.
-                        </td>
-                        <td align="center">
-                          <a href="#" class="btn btn-danger" title="delete"
-                            ><i class="fa fa-trash"> </i
-                          ></a>
-                        </td>
-                      </tr>
-                      <tr class="ban">
-                        <td class="avatar">
-                          <img src="" />
-                        </td>
-                        <td class="aj">type2</td>
-                        <td class="aj">Job title 2</td>
-                        <td class="aj">
-                          It is a long established fact that a reader will be.
-                        </td>
-                        <td align="center">
-                          <a href="#" class="btn btn-danger" title="delete"
-                            ><i class="fa fa-trash"> </i
-                          ></a>
-                        </td>
-                      </tr>
-                      <tr class="ban">
-                        <td class="avatar">
-                          <img src="" />
-                        </td>
-                        <td class="aj">type2</td>
-                        <td class="aj">Job title 2</td>
-                        <td class="aj">
-                          It is a long established fact that a reader will be.
-                        </td>
-                        <td align="center">
-                          <a href="#" class="btn btn-danger" title="delete"
-                            ><i class="fa fa-trash"> </i
-                          ></a>
-                        </td>
-                      </tr>
+                    <% }) %>
                     </tbody>
                   </table>
                 </div>
@@ -301,7 +242,7 @@
       <i class="fa fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <footer class="footer1" id="contact/to/us">
+    <footer class="footer1 rrr" id="contact/to/us">
       <div class="container">
         <div class="row">
           <div class="col-xl-4">
