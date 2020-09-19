@@ -47,7 +47,9 @@ router.post('/user-recruiter' ,authCheck, async (req,res)=>{
     res.redirect('/users/profile')
 })
 
-
+router.get('/about-us',(req,res)=>{
+    res.render('about-us',{user:req.user})
+})
 router.get('/users/profile/update' , authCheck ,(req,res)=>{
     res.render('profile-form',{user:req.user})
 })
