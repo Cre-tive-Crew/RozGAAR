@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 const jobSchema = new Schema({
     jd:String,      //job description
-    types:[{
+    jobType:{
         type:Number
-    }],
+    },
     job_poster:{
         type: mongoose.Schema.Types.ObjectId
     }

@@ -8,8 +8,8 @@ router.post('/users',async (req,res)=>{
         await user.save()
         res.status(201).send(user)
     }
-    catch{
-        res.status(400).send()
+    catch(e){
+        res.status(400).send(e)
     }
     
 })
