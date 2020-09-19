@@ -62,9 +62,11 @@
             <li class="nav-item">
               <a href="#contact/to/us" class="nav-link" id="node">Contact</a>
             </li>
+            <% if(user) {%>
             <li class="nav-item">
               <a href="/users/dashboard" class="nav-link" id="node">Dashboard</a>
             </li>
+            <%}%>
           </ul>
           <% if(!user) {%>
           <ul class="nav navbar-nav navbar-right ml-auto">
@@ -150,8 +152,8 @@
           <li data-slide-to="1" data-target="#carouselExampleControls"></li>
           <li data-slide-to="2" data-target="#carouselExampleControls"></li>
         </ol>
-        <div class="carousel-inner" id="slide1">
-          <div class="carousel-item active">
+        <div class="carousel-inner">
+          <div class="carousel-item active" id="slide1">
             <!--<div class="d-flex align-items-center min-vh-100">
                <div
                 class="container"

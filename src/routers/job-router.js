@@ -16,7 +16,8 @@ router.post('/users/newjobs/jobs' , async (req,res)=>{
                 ownerID:req.user.googleID,
                 contact:req.user.contact1,
                 ownerName:req.user.username,
-                ownerAdress:req.user.address
+                ownerAddress:req.user.address,
+                email:req.user.email
              }).save().then( 
                 res.redirect('/users/jobs')    
              )

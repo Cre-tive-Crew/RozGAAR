@@ -26,98 +26,286 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/css/profile.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
   </head>
   <body>
-    
-    <nav class="navbar navbar-default navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="/">
-        <img src="/img/Rozgaar-logo.png" width="30" height="25"
-      /></a>
-      <a class="navbar-brand" id="lol" href="/">Roz<b>GAAR</b></a>
-      <button
-        type="button"
-        class="navbar-toggler"
-        data-toggle="collapse"
-        data-target="#navbarCollapse"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div
-        id="navbarCollapse"
-        class="navbar-collapse justify-content-start collapse in"
-        aria-expanded="true"
-      >
-        <ul class="nav navbar-nav">
-          <li class="nav-item">
-            <a
-              href="#about"
-              onclick="document.getElementById('modal-wrapper').style.display='block'"
-              class="nav-link"
-              id="node"
-              >About</a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="#contact/to/us" class="nav-link" id="node">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a href="/users/dashboard" class="nav-link" id="node">Dashboard</a>
-          </li>
-        </ul>
-        <% if(user) {%>
-        <ul class="nav navbar-nav navbar-right ml-auto">
-          <li class="nav-item">
-            <a
-              class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1"
-              id="lop"
-              href="/users/profile"
-              aria-expanded="false"
-              style="text-align: center"
-              >Profile</a
-            >
-            <a
-              class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1"
-              id="lop"
-              href="/auth/logout"
-              aria-expanded="false"
-              style="text-align: center"
-              >Logout</a
-            >
-          </li>
-        </ul>
-        <%} %>
+    <div>
+      <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/">
+          <img src="/img/Rozgaar-logo.png" width="30" height="25"
+        /></a>
+
+        <a class="navbar-brand" id="lol" href="/">Roz<b>GAAR</b></a>
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          id="navbarCollapse"
+          class="navbar-collapse justify-content-start collapse in"
+          aria-expanded="true"
+        >
+          <ul class="nav navbar-nav">
+            <li class="nav-item">
+              <a
+                href="#about"
+                onclick="document.getElementById('modal-wrapper').style.display='block'"
+                class="nav-link"
+                id="node"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#contact/to/us" class="nav-link" id="node">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link" id="node">Dashboard</a>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right ml-auto">
+            <li class="nav-item">
+              <a
+                class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1"
+                id="lop"
+                href="/users/profile"
+                aria-expanded="false"
+                style="text-align: center"
+                >Profile</a
+              >
+              <a
+                class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1"
+                id="lop"
+                href="/auth/logout"
+                aria-expanded="false"
+                style="text-align: center"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+<!-- 
+<div class="container ra">
+  <div class="boxx">
+    <div class="element effect7">
+      <div class="front7">
+        <h2 style="font-weight: bold">WORKER</h2>
       </div>
-    </nav>
-
-    <% if(user.type!="worker") { %>
-              
-      <a
-      class="btn btn-3 get-started-btn mt-1 mb-1"
-      href="/users/jobs/"
-      aria-expanded="false"
-      style="text-align: center; "
-
-    > My Jobs </a>
-    
-    <br/>
   
-    <% } %>
-
-    <% if(user.type=="worker") {%>
+      <div class="back7">
+        <div class="back-content">
+          <h2>Hover Effect 7</h2>
+          <p>This is a wonderful project.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+</div> -->
+<div class="grid-container">
+  <div class="box1">
+    <div class="imge"> <img src=<%=user.thumbnail%> class="image"> </div>
+    <div class="user-name" style="text-transform: capitalize;"> <%= user.username %></div>
+    <% if(user.type=='recruiter') {%>
+    <div id="container">
+      <a href="/users/jobs">
+      <button class="btn learn-more" >
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">My Jobs</span>
+      </button>
+      </a>
+    </div>
+    <%}%>
+    <section >
       
-      <% jobs.forEach( (job)=>{%>
-        <%= job.jd %>
-        <br/>
-      <%}) %>  
-    
+      <% if(user.type=='worker') {%>
+        
+      <div style="font-size: 25px; text-align: center; margin: 2px 8px; color: #254e58; font-weight: 800;"> Filter Jobs</div>
+      <%} else {%>
+        
+      <div style="font-size: 25px; text-align: center; margin: 2px 8px; color: #254e58; font-weight: 800;"> Filter Workers</div>
+
+      <%}%>
+
+
+      <input id='one' type='checkbox' />
+      <label for='one'>
+        <span></span>
+        GARDNER
+        <ins><i>GARDNER</i></ins>
+      </label>
+      
+      <input id='two' type='checkbox' />
+      <label for='two'>
+        <span></span>
+        WATCHMEN
+        <ins><i>WATCHMEN</i></ins>
+      </label>
+      
+      <input id='three' type='checkbox' />
+      <label for='three'>
+        <span></span>
+        PAINTER
+        <ins><i>PAINTER</i></ins>
+      </label>
+      
+      <input id='four' type='checkbox' />
+      <label for='four'>
+        <span></span>
+         MAID
+        <ins><i>MAID</i></ins>
+      </label>
+    </section>
+    <div id="container">
+      <button class="learn-more">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">filter</span>
+      </button>
+    </div>
+  </div>
+
+  
+  <div class="ra">
+  
+    <!-- <% if(user.type=="worker") {%>
+      <div class="row" style="margin-top: 25px; margin-bottom: 0px;"> <h2> Take a look at the job postings. </h2></div>
     <%}else {%>
-    <% users.forEach( (user)=>{%>
-      <%= user.username %>
-   <%}) %>       
+      <div class="row" style="margin-top: 25px; margin-bottom: 0px;"> <h2> Take a look at the worker profiles.</h2></div>
+    <%}%> -->
+    
+  <div class="row r">
+    <% if(user.type=="worker") {%>
+     <% jobs.forEach( (job)=>{%>
+
+      <div class="boxx">
+      <div class="element effect7">
+        <div class="front7">
+          
+
+          <img src= <%= `/img/${job.jobType}.jpg` %> style="filter: blur(3px); width: 100%; height: 100%;">
+          <div class="container contt" style="text-shadow: 0px 0px 5px rgb(60, 60, 236);">
+            <div class="job-title-name-worker">
+            <%= job.jobType %>
+            </div>
+            
+            <div class="job-Address"><h4>Address:</h4><p><%= job.ownerAddress %></p></div>
+          </div>
+        </div>
+    
+        <div class="back7">
+          <div class="back-content">
+            <div><h4 style="color: white;">NAME : </h4><p style="font-size: 15px;  text-transform: capitalize;">
+              <%= job.ownerName %></p></div>
+            <div><h4 style="color: white;">CONTACT : </h4><p style="font-size: 15px;"> <%= job.contact %></p></div>
+            
+            <div><h4 style="color: white;">EMAIL ADDRESS : </h4><p style="font-size: 15px;"> <%= job.email %></p></div>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <%}) %>  
+    <%}else {%>
+    <% users.forEach( (worker)=>{%>
+      
+      <div class="boxx">
+        <div class="element effect7">
+          <div class="front7">
+            <img src=<%= worker.thumbnail %>  style="filter: blur(3px); width: 100%; height: 100%;">
+            <div class="container contt" style="text-shadow: 0px 0px 5px rgb(60, 60, 236);">
+              <div class="job-title-name-worker">
+                <%= worker.username %>
+              </div>
+              
+              <div class="job-Address"><h4>Address:</h4><p>
+                <%= worker.address %></p></div>
+            </div>
+          </div>
+      
+          <div class="back7">
+            <div class="back-content">
+              <div><h4 style="color: white;">NAME : </h4><p style="font-size: 15px;">
+               <%= worker.username %>
+              </p></div>
+              <div><h4 style="color: white;">CONTACT : </h4><p style="font-size: 15px;">
+                <%= worker.contact1 %>
+              </p></div>
+              
+              <% if(worker.contact2) {%>
+                <div><h4 style="color: white;"> SECONDARY CONTACT  : </h4><p style="font-size: 15px;">
+                  <%= worker.contact2 %>
+                </p></div>  
+              <%}%>
+
+
+              <div><h4 style="color: white;">EMAIL ADDRESS : </h4><p style="font-size: 15px;">
+                <%= worker.email %>
+              </p></div>
+            </div>
+          </div>
+        </div>
+      </div> 
+
+    <%}) %>       
     <%}%>
 
-    
+  </div>
+
+  </div>
+  
+<!-- </div> -->
+    <!-- -->
+</div>
+
+
+
+
+
+
+
+
+
+
+    <div id="modal-wrapper" class="modal">
+      <form class="modal-content animate">
+        <h3 style="color: #254e58">Who Are We</h3>
+        <br />
+
+        <span
+          onclick="document.getElementById('modal-wrapper').style.display='none'"
+          class="close"
+          title="Close PopUp"
+          >&times;</span
+        >
+      </form>
+    </div>
+
+    <div id="modal-wrapper1" class="modal">
+      <form class="modal-content animate" id="m1">
+        <h3 style="color: #254e58">Terms and Conditions</h3>
+        <h4>Welcome to RozGAAR!</h4>
+        <span
+          onclick="document.getElementById('modal-wrapper1').style.display='none'"
+          class="close"
+          title="Close PopUp"
+          >&times;</span
+        >
+      </form>
+    </div>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
     <footer class="footer1" id="contact/to/us">
       <div class="container">
         <div class="row">
@@ -161,6 +349,6 @@
         </div>
       </div>
     </footer>
-
+    <script src="/js/dashboard.js"></script>
   </body>
 </html>

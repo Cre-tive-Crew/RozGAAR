@@ -6,8 +6,9 @@ const jobSchema = new Schema({
     jobType:String,
     contact:String,
     ownerName:String,
-    ownerAdress:String,
-    ownerID : String 
+    ownerAddress:String,
+    ownerID : String, 
+    email:String
 });
 
 const Job = mongoose.model('job',jobSchema);
