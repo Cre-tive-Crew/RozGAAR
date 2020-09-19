@@ -3,12 +3,11 @@ const Schema = mongoose.Schema;
 
 const jobSchema = new Schema({
     jd:String,      //job description
-    jobType:{
-        type:Number
-    },
-    job_poster:{
-        type: mongoose.Schema.Types.ObjectId
-    }
+    jobType:String,
+    // job_poster:{
+    //     type: mongoose.Schema.Types.ObjectId
+    // },
+    ownerID : String 
 });
 
 const Job = mongoose.model('job',jobSchema);

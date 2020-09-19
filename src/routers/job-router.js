@@ -2,16 +2,24 @@ const express= require('express')
 const Job = require('../models/job-model')
 const router = express.Router()
 
-router.post('/jobs',async (req,res)=>{
-    const job = new Job(req.body)
-    try {
-        await job.save()
-        res.status(201).send(job)
-    }
-    catch(e){
-        res.status(400).send(e)
-    }
-    
+
+router.post('/users/newjobs/jobs' , async (req,res)=>{
+     
+    console.log(req.body)
+
+    await Job.findOne( { jobType:req.body.jobType , ownerID:req.user.googleID } ) .then((currentJob)=>{
+        if(currentJob)
+             res.redirect('/users/jobs') 
+        else {
+            new Job({
+                jd:req.body.jd,
+                jobType:req.body.jobType,    
+                ownerID:req.user.googleID  
+             }).save().then( 
+                res.redirect('/users/jobs')    
+             ) 
+        }
+    })
 })
 
 router.get('/jobs',async (req,res)=>{
@@ -24,7 +32,7 @@ router.get('/jobs',async (req,res)=>{
     } catch (error) {
         res.status(400).send(error)
     }
-
 })
+
 
 module.exports=router

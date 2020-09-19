@@ -295,6 +295,7 @@ body {
   width: 50%;
   height: 50%;
   overflow: auto;
+  border-radius: 13px;
 }
 
 .modal-content {
@@ -318,7 +319,7 @@ body {
   width: 70%;
   height: 60%;
   overflow: none;
-  border-radius: 30px;
+  border-radius: 15px;
 }
 #m1 {
   background-color: rgba(232, 243, 234);
@@ -589,7 +590,7 @@ body {
 
 .checkbox label {
   min-height: 34px;
-  display: block;
+  /* display: block; */
   margin-top: 0px;
   padding-left: 30px;
   margin-bottom: 0;

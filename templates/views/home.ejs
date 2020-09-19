@@ -15,6 +15,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -61,6 +62,9 @@
             <li class="nav-item">
               <a href="#contact/to/us" class="nav-link" id="node">Contact</a>
             </li>
+            <li class="nav-item">
+              <a href="/users/dashboard" class="nav-link" id="node">Dashboard</a>
+            </li>
           </ul>
           <% if(!user) {%>
           <ul class="nav navbar-nav navbar-right ml-auto">
@@ -71,15 +75,7 @@
                 href="/auth/login"
                 aria-expanded="false"
                 style="text-align: center"
-                >Login</a
-              >
-              <a
-                class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1"
-                id="lop"
-                href="/auth/signup"
-                aria-expanded="false"
-                style="text-align: center"
-                >Signup</a
+                >Get Started</a
               >
             </li>
           </ul>
@@ -135,9 +131,85 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="heading"></div>
+        <div class="heading" style="color: aliceblue; font-family: 'Poppins', sans-serif;"></div>
       </div>
     </div>
+
+    <div class="container-fluid px-0">
+      <div
+        id="carouselExampleControls"
+        class="carousel slide"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner slider1" role="listbox">
+          <div class="carousel-item active">
+            <div class="d-flex align-items-center min-vh-100">
+              <div class="container" style="text-align: center; margin-right: 40px; margin-left: 10%;">
+                <div class="align-items-center justify-content-center">
+                  <a href=""><h1 class="display-1" style="color: red;">ONE</h1></a>
+                </div>
+                <p class="" style="padding-left: 0px; padding-right: 8%; color: #1979a9;">
+                  There are many variations of passages of Lorem Ipsum
+                  available, but the majority have suffered alteration in some
+                  form,dff fjj
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="d-flex align-items-center min-vh-100">
+              <div class="container" style="text-align: center; margin-right: 40px; margin-left: 10%;">
+                <div class="align-items-center justify-content-center">
+                  <a href=""><h1 class="display-1" style="color: red;"> Two </h1></a>
+                </div>
+                <p class="" style="padding-left: 0px; padding-right: 8%; color: #1979a9;">
+                  There are many variations of passages of Lorem Ipsum
+                  available, but the majority have suffered alteration in some
+                  form,dff fjj
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#carouselExampleControls"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carouselExampleControls"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <% if(!user) {%>
+    <div class="container py-4 text-center">
+      <h1 style="color: aliceblue; font-family: 'Poppins', sans-serif; font-weight: normal;" class="cont">So, take a step closer to us now.</h1>
+      <div class="head2">
+        
+        <a
+          type="button"
+          id="lopo"
+          href="/auth/login"
+          aria-expanded="false"
+          style="text-align: center;"
+          class="btn btn-primary get-started-btn mt-1 mb-1"
+        >
+        Get Started
+      </a>
+      
+      </div>
+    </div>
+    <% } %>
 
     <button onclick="topFunction()" id="myBtn" title="Go to top">
       <i class="fa fa-arrow-up" aria-hidden="true"></i>
@@ -185,6 +257,6 @@
         </div>
       </div>
     </footer>
-    <script src="homepage.js"></script>
+    <script src="/js/homepage.js"></script>
   </body>
 </html>

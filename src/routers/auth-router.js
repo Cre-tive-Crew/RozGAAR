@@ -4,6 +4,7 @@ const passpost =require('passport')
 router.get('/login',(req,res)=>{
     res.render('login',{user:req.user});
 })
+
 router.get('/signup',(req,res)=>{
     res.render('signup',{user:req.user});
 })

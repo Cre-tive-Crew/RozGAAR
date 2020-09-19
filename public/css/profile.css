@@ -286,6 +286,7 @@ body {
   width: 50%;
   height: 50%;
   overflow: auto;
+  border-radius: 13px;
 }
 
 .modal-content {
@@ -309,7 +310,7 @@ body {
   width: 70%;
   height: 60%;
   overflow: none;
-  border-radius: 30px;
+  border-radius: 15px;
 }
 #m1 {
   background-color: rgba(232, 243, 234);
@@ -490,7 +491,7 @@ body {
 .btn-3,
 .btn-3:active {
   color: #254e58;
-  background: rgba(232, 243, 234, 0.6);
+  background: rgba(232, 243, 234);
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 13px;
@@ -501,7 +502,7 @@ body {
 
 .btn-3:hover,
 .btn-3:focus {
-  color: rgba(232, 243, 234, 0.6);
+  color: rgba(232, 243, 234);;
   outline: none;
   font-weight: bold;
   background: #254e58;

@@ -63,6 +63,28 @@
               <a href="#contact/to/us" class="nav-link" id="node">Contact</a>
             </li>
           </ul>
+          <% if(user) {%>
+            <ul class="nav navbar-nav navbar-right ml-auto">
+              <li class="nav-item">
+                <a
+                  class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1"
+                  id="lop"
+                  href="/users/profile"
+                  aria-expanded="false"
+                  style="text-align: center"
+                  >Profile</a
+                >
+                <a
+                  class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1"
+                  id="lop"
+                  href="/auth/logout"
+                  aria-expanded="false"
+                  style="text-align: center"
+                  >Logout</a
+                >
+              </li>
+            </ul>
+            <%} %>
         </div>
       </nav>
     </div>
@@ -71,8 +93,15 @@
       <div class="row">
         <div class="col-md-3 register-left">
           <img src="/img/rocket.png" alt="" />
-          <h3 style="color: rgba(232, 243, 234, 0.6);">Welcome</h3>
-          <p style="color: rgba(232, 243, 234, 0.6);">You are only few seconds away !!</p>
+          <% if(!user.contact1) { %>
+            <h3 style="color: rgba(232, 243, 234, 0.6);">Welcome</h3>
+            <p style="color: rgba(232, 243, 234, 0.6);">You are only few seconds away !!</p>
+          <% } %>
+          <% if(user.contact1) { %>
+            <h3 style="color: rgba(232, 243, 234, 0.6);">Update Profile</h3>
+            <p style="color: rgba(232, 243, 234, 0.6);"> Change your prolife according to your needs. We got you covered!!</p>
+          <% } %>
+          
           <!-- <input type="submit" name="" value="Login" /><br /> -->
         </div>
         <div class="col-md-9 register-right">
@@ -268,6 +297,7 @@
                         value=<%= user.username %>
                       />
                     </div>
+                    
                     <div class="form-group">
                       <input
                         type="email"
@@ -275,9 +305,8 @@
                         name="email"
                         placeholder="Email"
                         required
-                        <% if(user.email) { %>
+                        readonly
                           value=<%= user.email %>
-                        <% } %>
                       />
                     </div>
                     <div class="form-group">

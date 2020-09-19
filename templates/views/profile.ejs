@@ -63,7 +63,7 @@
               <a href="#contact/to/us" class="nav-link" id="node">Contact</a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link" id="node">Dashboard</a>
+              <a href="/users/dashboard" class="nav-link" id="node">Dashboard</a>
             </li>
           </ul>
 
@@ -94,7 +94,7 @@
     <div class="container">
       <div class="row profile">
         <div class="col-md-3">
-          <div class="profile-sidebar">
+          <div class="profile-sidebar" style="border-radius: 10px; background-color: rgba(232, 243, 234);">
             <!-- SIDEBAR USERPIC -->
             <div class="profile-userpic">
               <img
@@ -124,7 +124,7 @@
           </div>
         </div>
         <div class="col-md-9">
-          <div class="profile-content">
+          <div class="profile-content" style="color: rgba(232, 243, 234);">
             <h5>Name</h5>
             <p style="text-transform: capitalize"><%= user.username %></p>
             <h5>Email</h5>
@@ -147,14 +147,16 @@
                 <% }) %>
               </p>
             <% } %>
+            
             <a
               class="btn btn-3 get-started-btn mt-1 mb-1"
               id="lop"
-              href=""
+              href="/users/dashboard"
               aria-expanded="false"
-              style="text-align: center"
-              >Your Dashboard</a
-            >
+              style="text-align: center; "
+
+            >Your Dashboard</a>
+
           </div>
         </div>
       </div>

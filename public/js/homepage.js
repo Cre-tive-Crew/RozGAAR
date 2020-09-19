@@ -1,6 +1,6 @@
 
 
-const heading = 'Anything you want to show';
+const heading = 'कोई काम छोटा नहीं होता।';
 let i = 0;
 
 const typing = () => {
