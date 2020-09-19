@@ -27,13 +27,21 @@
                         <li class="nav-item"><a href="#about" onclick="document.getElementById('modal-wrapper').style.display='block'" class="nav-link" id="node">About</a></li>
                         <li class="nav-item"><a href="#contact/to/us" class="nav-link" id="node">Contact</a></li>
                     </ul>
-
+                    <% if(!user) {%>
                     <ul class="nav navbar-nav navbar-right ml-auto">
                         <li class="nav-item">
                             <a  class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" id="lop" href="/auth/login" aria-expanded="false" style="text-align: center">Login</a>
                             <a  class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" id="lop" href="/auth/signup" aria-expanded="false" style="text-align: center">Signup</a>
                         </li>
                     </ul>
+                    <% } %>
+                    <% if(user) {%>
+                        <ul class="nav navbar-nav navbar-right ml-auto">
+                            <li class="nav-item">
+                                <a  class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" id="lop" href="/users/profile" aria-expanded="false" style="text-align: center">Profile</a>
+                            </li>
+                        </ul>
+                    <%} %>
                 </div>
             </nav>
         </div>

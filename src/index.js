@@ -12,6 +12,7 @@ require('./utils/passport')
 
 const app = express()
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 const publicPath=path.join(__dirname,'../public')
 const templateDirPath=path.join(__dirname,'../templates/views')

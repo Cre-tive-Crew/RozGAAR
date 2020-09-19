@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Register</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Varela+Round"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/profile-form.css" />
+  </head>
+  <body>
+    <div>
+      <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/">
+          <img src="/img/Rozgaar-logo.jpg" width="30" height="25"
+        /></a>
+
+        <a class="navbar-brand" id="lol" href="/">Roz<b>GAAR</b></a>
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          id="navbarCollapse"
+          class="navbar-collapse justify-content-start collapse in"
+          aria-expanded="true"
+        >
+          <ul class="nav navbar-nav">
+            <li class="nav-item">
+              <a
+                href="#about"
+                onclick="document.getElementById('modal-wrapper').style.display='block'"
+                class="nav-link"
+                id="node"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#contact/to/us" class="nav-link" id="node">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container register">
+      <div class="row">
+        <div class="col-md-3 register-left">
+          <img src="rocket.png" alt="" />
+          <h3>Welcome</h3>
+          <p>You are only few seconds away !!</p>
+          <!-- <input type="submit" name="" value="Login" /><br /> -->
+        </div>
+        <div class="col-md-9 register-right">
+          <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="home-tab"
+                data-toggle="tab"
+                href="#home"
+                role="tab"
+                aria-controls="home"
+                aria-selected="true"
+                >Worker</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="profile-tab"
+                data-toggle="tab"
+                href="#profile"
+                role="tab"
+                aria-controls="profile"
+                aria-selected="false"
+                >Recruiter</a
+              >
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="home"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+            >
+              <h3 class="register-heading">Apply as Worker</h3>
+              <!-- first form -->
+              <form action="/user-worker" method="POST">
+                <div class="row register-form">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="username" 
+                        placeholder="Name" 
+                        readonly 
+                        value=<%= user.username %>
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        class="form-control"
+                        name="email" 
+                        placeholder="Email" 
+                        required
+                        value=""
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        minlength="10"
+                        maxlength="10"
+                        name="contact1" 
+                        placeholder="Primary Contact Number" 
+                        required
+                        class="form-control"
+                        value=""
+                      />
+                    </div>
+                  </div>
+  
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="address" 
+                        placeholder="Address" 
+                        required
+                        value=""
+                      />
+                    </div>
+                    <div class="form-group">
+                      <div class="maxl">
+                        <label class="radio inline">
+                          <input
+                            type="radio"
+                            name="gender"
+                            value="male"
+                            checked
+                          />
+                          <span> Male &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="radio inline">
+                          <input type="radio" name="gender" value="female" />
+                          <span>Female </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        minlength="10"
+                        maxlength="10"
+                        name="contact2" 
+                        placeholder="Secondary Contact Number"
+                        class="form-control"
+                        value=""
+                      />
+                    </div>
+                    <input type="submit" class="btnRegister" value="Update Profile" />
+                  </div>
+                </div>
+              </form>
+              
+            </div>
+            <div
+              class="tab-pane fade show"
+              id="profile"
+              role="tabpanel"
+              aria-labelledby="profile-tab"
+            >
+              <h3 class="register-heading">Apply as Recruiter</h3>
+              <!-- second form -->
+              <form action="/user-recruiter" method="POST">
+                <div class="row register-form">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="username" 
+                        placeholder="Name" 
+                        readonly 
+                        value=<%= user.username %>
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        class="form-control"
+                        name="email" 
+                        placeholder="Email" 
+                        required
+                        value=""
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        minlength="10"
+                        maxlength="10"
+                        name="contact1" 
+                        placeholder="Primary Contact Number" 
+                        required
+                        class="form-control"
+                        value=""
+                      />
+                    </div>
+                  </div>
+  
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="address" 
+                        placeholder="Address" 
+                        required
+                        value=""
+                      />
+                    </div>
+                    <div class="form-group">
+                      <div class="maxl">
+                        <label class="radio inline">
+                          <input
+                            type="radio"
+                            name="gender"
+                            value="male"
+                            checked
+                          />
+                          <span> Male &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="radio inline">
+                          <input type="radio" name="gender" value="female" />
+                          <span>Female </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        minlength="10"
+                        maxlength="10"
+                        name="contact2" 
+                        placeholder="Secondary Contact Number"
+                        class="form-control"
+                        value=""
+                      />
+                    </div>
+                    <input type="submit" class="btnRegister" value="Update Profile" />
+                  </div>
+                </div>
+              </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-wrapper1" class="modal">
+      <form class="modal-content animate" id="m1">
+        <h3 style="color: red">Terms and Conditions:</h3>
+        <h4>Welcome to RozGAAR!</h4>
+        <span
+          onclick="document.getElementById('modal-wrapper1').style.display='none'"
+          class="close"
+          title="Close PopUp"
+          >&times;</span
+        >
+      </form>
+    </div>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
+    <footer class="footer1" id="contact/to/us">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4">
+            <a href="https://github.com/avasthiayush" style="color: white"
+              ><i class="fa fa-github" aria-hidden="true"></i> Visit us
+            </a>
+          </div>
+          <div class="col-xl-4">
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=xyz@gmail.com&su=SUBJECT&body=BODY"
+              style="color: white"
+              ><i
+                class="fa fa-envelope"
+                aria-hidden="false"
+                style="color: white"
+              ></i>
+              Mail us for any query</a
+            >
+          </div>
+          <div class="col-xl-4">
+            <a
+              href="#terms&conditions"
+              onclick="document.getElementById('modal-wrapper1').style.display='block'"
+              style="color: white"
+              >Terms &amp; Conditions</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <footer class="footer2">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">Copyright © 2020 Creative_Crew</div>
+        </div>
+      </div>
+    </footer>
+    <script src="/js/homepage.js"></script>
+  </body>
+</html>
