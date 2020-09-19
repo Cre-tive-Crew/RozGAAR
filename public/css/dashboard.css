@@ -410,18 +410,10 @@
  
 
   .footer2 {
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
     margin-bottom: 0px;
   }
   
   .footer1 {
-    position: fixed;
-    bottom: 43px;
-    left: 0px;
-    right: 0px;
     margin-bottom: 0px;
     margin-top: 30px;
   }
@@ -783,4 +775,10 @@ button:hover .button-text {
     transform: scale(1.5) rotate(15deg);
   }
   
- 
+ .my-heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 100; 
+  color: rgba(232, 243, 234);
+  margin: 0px 42%; 
+  width: 100%;
+ }

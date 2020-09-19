@@ -15,6 +15,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -63,7 +64,7 @@
               <a href="#contact/to/us" class="nav-link" id="node">Contact</a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link" id="node">Dashboard</a>
+              <a href="/users/dashboard" class="nav-link" id="node">Dashboard</a>
             </li>
           </ul>
 
@@ -109,70 +110,82 @@
   
   
 </div> -->
+<%function getFirstWord(str) {%>
+  <%let spaceIndex = str.indexOf(' ');%>
+  <%return spaceIndex === -1 ? str : str.substr(0, spaceIndex);%>
+<%};%>
+<div>
+  <% if(user.type=="worker") {%>
+    <h1  class="my-heading"> Available Job Postings </h1>
+    <%}else {%>
+      <h1  class="my-heading"> Our Worker Profiles </h1>
+    <%}%>
+   
+</div>
+<form id="filter" action="/users/dashboard/filter" method="POST"></form>
 <div class="grid-container">
   <div class="box1">
     <div class="imge"> <img src=<%=user.thumbnail%> class="image"> </div>
-    <div class="user-name" style="text-transform: capitalize;"> <%= user.username %></div>
+    <div class="user-name" style="text-transform: capitalize;"><%= getFirstWord(user.username) %></div>
+    
     <% if(user.type=='recruiter') {%>
     <div id="container">
-      <a href="/users/jobs">
-      <button class="btn learn-more" >
+      
+      <button onclick="window.location.href='/users/jobs'" class="learn-more" >
         <span class="circle" aria-hidden="true">
           <span class="icon arrow"></span>
         </span>
         <span class="button-text">My Jobs</span>
       </button>
-      </a>
+      
     </div>
     <%}%>
     <section >
       
       <% if(user.type=='worker') {%>
-        
       <div style="font-size: 25px; text-align: center; margin: 2px 8px; color: #254e58; font-weight: 800;"> Filter Jobs</div>
       <%} else {%>
-        
       <div style="font-size: 25px; text-align: center; margin: 2px 8px; color: #254e58; font-weight: 800;"> Filter Workers</div>
-
       <%}%>
-
-
-      <input id='one' type='checkbox' />
+      
+      
+      <input form="filter" id='one' type='checkbox' name="Gardener" />
       <label for='one'>
         <span></span>
-        GARDNER
-        <ins><i>GARDNER</i></ins>
+        GARDNERS
+        <ins><i>GARDNERS</i></ins>
       </label>
       
-      <input id='two' type='checkbox' />
+      <input id='two' form="filter" type='checkbox' name="Watchman" />
       <label for='two'>
         <span></span>
         WATCHMEN
         <ins><i>WATCHMEN</i></ins>
       </label>
       
-      <input id='three' type='checkbox' />
+      <input id='three' form="filter" type='checkbox' name="Painter" />
       <label for='three'>
         <span></span>
-        PAINTER
-        <ins><i>PAINTER</i></ins>
+        PAINTERS
+        <ins><i>PAINTERS</i></ins>
       </label>
       
-      <input id='four' type='checkbox' />
+      <input id='four' form="filter" type='checkbox' name="Maid" />
       <label for='four'>
         <span></span>
-         MAID
-        <ins><i>MAID</i></ins>
+         MAIDS
+        <ins><i>MAIDS</i></ins>
       </label>
-    </section>
-    <div id="container">
-      <button class="learn-more">
+     </section>
+     <div id="container">
+      <button type='submit' form="filter" class="learn-more">
         <span class="circle" aria-hidden="true">
           <span class="icon arrow"></span>
         </span>
         <span class="button-text">filter</span>
       </button>
-    </div>
+     </div>
+    
   </div>
 
   
@@ -194,7 +207,7 @@
           
 
           <img src= <%= `/img/${job.jobType}.jpg` %> style="filter: blur(3px); width: 100%; height: 100%;">
-          <div class="container contt" style="text-shadow: 0px 0px 5px rgb(60, 60, 236);">
+          <div class="container contt" style="text-shadow: 0px 0px 5px rgb(0, 0, 0);">
             <div class="job-title-name-worker">
             <%= job.jobType %>
             </div>
@@ -222,19 +235,26 @@
         <div class="element effect7">
           <div class="front7">
             <img src=<%= worker.thumbnail %>  style="filter: blur(3px); width: 100%; height: 100%;">
-            <div class="container contt" style="text-shadow: 0px 0px 5px rgb(60, 60, 236);">
+            <div class="container contt" style="text-shadow: 0px 0px 5px rgb(0, 0, 0); text-transform: capitalize;">
               <div class="job-title-name-worker">
                 <%= worker.username %>
               </div>
               
               <div class="job-Address"><h4>Address:</h4><p>
-                <%= worker.address %></p></div>
+                <%= worker.address %> <br> 
+                Works as :
+               <% worker.jobTypes.forEach((jobType)=> { %>
+                  <%=jobType%>
+                <% })%>
+              
+              </p></div>
+              
             </div>
           </div>
       
           <div class="back7">
             <div class="back-content">
-              <div><h4 style="color: white;">NAME : </h4><p style="font-size: 15px;">
+              <div><h4 style="color: white;">NAME : </h4><p style="font-size: 15px; text-transform: capitalize;">
                <%= worker.username %>
               </p></div>
               <div><h4 style="color: white;">CONTACT : </h4><p style="font-size: 15px;">
