@@ -21,9 +21,14 @@ router.post('/user-worker' ,authCheck, async (req,res)=>{
      user.contact1=req.body.contact1
      if(req.body.contact2)
      user.contact2=req.body.contact2
-     user.type=false
+     user.type="worker"
+     const jobs = ['painter','gardener','maid','watchman']
+     jobs.forEach((job)=>{
+         if(job in req.body) user.jobTypes.push(job)
+     })
      await user.save()
     console.log(user)
+    console.log(req.body)
     res.redirect('/users/profile')
 })
 
@@ -34,11 +39,17 @@ router.post('/user-recruiter' ,authCheck, async (req,res)=>{
     user.contact1=req.body.contact1
     if(req.body.contact2)
     user.contact2=req.body.contact2
-    user.type=true
+    user.type="recruiter"
+    req.user=user
     await user.save()
    console.log(user)
    res.redirect('/users/profile')
 })
+
+
+router.get('/users/profile/update' , authCheck ,(req,res)=>{
+    res.render('profile-form',{user:req.user})
+ })
 
 router.get('/users/profile' , authCheck ,(req,res)=>{
     if(!req.user.contact1)

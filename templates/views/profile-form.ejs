@@ -70,7 +70,7 @@
     <div class="container register">
       <div class="row">
         <div class="col-md-3 register-left">
-          <img src="rocket.png" alt="" />
+          <img src="/img/rocket.png" alt="" />
           <h3>Welcome</h3>
           <p>You are only few seconds away !!</p>
           <!-- <input type="submit" name="" value="Login" /><br /> -->
@@ -118,9 +118,9 @@
                       <input
                         type="text"
                         class="form-control"
-                        name="username" 
-                        placeholder="Name" 
-                        readonly 
+                        name="username"
+                        placeholder="Name"
+                        readonly
                         value=<%= user.username %>
                       />
                     </div>
@@ -128,10 +128,14 @@
                       <input
                         type="email"
                         class="form-control"
-                        name="email" 
-                        placeholder="Email" 
+                        name="email"
+                        placeholder="Email"
+                        
                         required
-                        value=""
+                        <% if(user.email) { %>
+                          value=<%= user.email %>
+                        <% } %>
+                        
                       />
                     </div>
                     <div class="form-group">
@@ -139,24 +143,66 @@
                         type="text"
                         minlength="10"
                         maxlength="10"
-                        name="contact1" 
-                        placeholder="Primary Contact Number" 
+                        name="contact1"
+                        placeholder="Primary Contact Number"
                         required
                         class="form-control"
-                        value=""
+                        <% if(user.contact1) { %>
+                          value=<%= user.contact1 %>
+                        <% } %>
                       />
                     </div>
+                    <div class="form-group">
+                      <label class="jobslabel"
+                        >Choose your preferred jobs</label
+                      >
+                      <div class="checkbox">
+                        <input type="checkbox" id="checkbox" name="painter" value="" />
+                        <label for="checkbox"><span>Painter</span></label>
+                      </div>
+
+                      <div class="checkbox">
+                        <input
+                          type="checkbox"
+                          id="checkbox2"
+                          name="watchman"
+                          value=""
+                        />
+                        <label for="checkbox2"><span>Watchman</span></label>
+                      </div>
+                      <div class="checkbox">
+                        <input
+                          type="checkbox"
+                          id="checkbox3"
+                          name="gardener"
+                          value=""
+                        />
+                        <label for="checkbox3"><span>Gardener</span></label>
+                      </div>
+
+                      <div class="checkbox">
+                        <input
+                          type="checkbox"
+                          id="checkbox4"
+                          name="maid"
+                          value=""
+                        />
+                        <label for="checkbox4"><span>Maid</span></label>
+                      </div>
+                    </div>
                   </div>
-  
+
                   <div class="col-md-6">
                     <div class="form-group">
                       <input
                         type="text"
                         class="form-control"
-                        name="address" 
-                        placeholder="Address" 
+                        name="address"
+                        placeholder="Address"
                         required
-                        value=""
+                        <% if(user.address) { %>
+                          value=<%= user.address %>
+                        <% } %>
                       />
                     </div>
                     <div class="form-group">
@@ -166,12 +212,19 @@
                             type="radio"
                             name="gender"
                             value="male"
-                            checked
+                            <% if(user.gender=='male' || !user.gender) { %>
+                              checked
+                            <% } %>
                           />
                           <span> Male &nbsp;&nbsp;</span>
                         </label>
                         <label class="radio inline">
-                          <input type="radio" name="gender" value="female" />
+                          <input type="radio" 
+                          name="gender" 
+                          value="female" 
+                          <% if(user.gender=="female") { %>
+                            checked
+                          <% } %>/>
                           <span>Female </span>
                         </label>
                       </div>
@@ -181,17 +234,22 @@
                         type="text"
                         minlength="10"
                         maxlength="10"
-                        name="contact2" 
+                        name="contact2"
                         placeholder="Secondary Contact Number"
                         class="form-control"
-                        value=""
+                        <% if(user.contact2) { %>
+                          value=<%= user.contact2 %>
+                        <% } %>
                       />
                     </div>
-                    <input type="submit" class="btnRegister" value="Update Profile" />
+                    <input
+                      type="submit"
+                      class="btnRegister"
+                      value="Update Profile"
+                    />
                   </div>
                 </div>
               </form>
-              
             </div>
             <div
               class="tab-pane fade show"
@@ -202,15 +260,15 @@
               <h3 class="register-heading">Apply as Recruiter</h3>
               <!-- second form -->
               <form action="/user-recruiter" method="POST">
-                <div class="row register-form">
+                <div class="row register-form margin-second-form">
                   <div class="col-md-6">
                     <div class="form-group">
                       <input
                         type="text"
                         class="form-control"
-                        name="username" 
-                        placeholder="Name" 
-                        readonly 
+                        name="username"
+                        placeholder="Name"
+                        readonly
                         value=<%= user.username %>
                       />
                     </div>
@@ -218,10 +276,12 @@
                       <input
                         type="email"
                         class="form-control"
-                        name="email" 
-                        placeholder="Email" 
+                        name="email"
+                        placeholder="Email"
                         required
-                        value=""
+                        <% if(user.email) { %>
+                          value=<%= user.email %>
+                        <% } %>
                       />
                     </div>
                     <div class="form-group">
@@ -229,24 +289,28 @@
                         type="text"
                         minlength="10"
                         maxlength="10"
-                        name="contact1" 
-                        placeholder="Primary Contact Number" 
+                        name="contact1"
+                        placeholder="Primary Contact Number"
                         required
                         class="form-control"
-                        value=""
+                        <% if(user.contact1) { %>
+                          value=<%= user.contact1 %>
+                        <% } %>
                       />
                     </div>
                   </div>
-  
+
                   <div class="col-md-6">
                     <div class="form-group">
                       <input
                         type="text"
                         class="form-control"
-                        name="address" 
-                        placeholder="Address" 
+                        name="address"
+                        placeholder="Address"
                         required
-                        value=""
+                        <% if(user.address) { %>
+                          value=<%= user.address %>
+                        <% } %>
                       />
                     </div>
                     <div class="form-group">
@@ -256,12 +320,19 @@
                             type="radio"
                             name="gender"
                             value="male"
-                            checked
+                            <% if(user.gender=='male' || !user.gender) { %>
+                              checked
+                            <% } %>
                           />
                           <span> Male &nbsp;&nbsp;</span>
                         </label>
                         <label class="radio inline">
-                          <input type="radio" name="gender" value="female" />
+                          <input type="radio" 
+                          name="gender" 
+                          value="female" 
+                          <% if(user.gender=="female") { %>
+                            checked
+                          <% } %>/>
                           <span>Female </span>
                         </label>
                       </div>
@@ -271,17 +342,22 @@
                         type="text"
                         minlength="10"
                         maxlength="10"
-                        name="contact2" 
+                        name="contact2"
                         placeholder="Secondary Contact Number"
                         class="form-control"
-                        value=""
+                        <% if(user.contact2) { %>
+                          value=<%= user.contact2 %>
+                        <% } %>
                       />
                     </div>
-                    <input type="submit" class="btnRegister" value="Update Profile" />
+                    <input
+                      type="submit"
+                      class="btnRegister"
+                      value="Update Profile"
+                    />
                   </div>
                 </div>
               </form>
-              
             </div>
           </div>
         </div>

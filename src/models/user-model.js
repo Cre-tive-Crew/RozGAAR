@@ -4,17 +4,16 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     email:{
         type :String,
-        unique:true,
         trim : true,
         lowercase :true,
     },
     username:{ type:String , trim: true, required: true},
-    address:{ type:String, default:"iamaddress"},
+    address:{ type:String},
     contact1:{ type:String},
     contact2:{ type:String},
-    type:{type:Boolean},
+    type:{type:String},
     jobTypes: [{
-        type:Number,
+        type:String,
         required:true
     }],
     googleID : { type:String , required:true},
