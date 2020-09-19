@@ -106,32 +106,64 @@
         </div>
         <div class="col-md-9 register-right">
           <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                id="home-tab"
-                data-toggle="tab"
-                href="#home"
-                role="tab"
-                aria-controls="home"
-                aria-selected="true"
-                >Worker</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                id="profile-tab"
-                data-toggle="tab"
-                href="#profile"
-                role="tab"
-                aria-controls="profile"
-                aria-selected="false"
-                >Recruiter</a
-              >
-            </li>
+            
+            <% if(!user.type) { %>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  id="home-tab"
+                  data-toggle="tab"
+                  href="#home"
+                  role="tab"
+                  aria-controls="home"
+                  aria-selected="true"
+                  >Worker</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="profile-tab"
+                  data-toggle="tab"
+                  href="#profile"
+                  role="tab"
+                  aria-controls="profile"
+                  aria-selected="false"
+                  >Recruiter</a
+                >
+              </li>
+            <% } %>
+              <% if(user.type == 'worker' ) { %>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    id="home-tab"
+                    data-toggle="tab"
+                    href="#home"
+                    role="tab"
+                    aria-controls="home"
+                    aria-selected="true"
+                    >Worker</a
+                  >
+                </li>
+              <% } %>
+              <% if(user.type == 'rectuiter' ) { %>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    id="profile-tab"
+                    data-toggle="tab"
+                    href="#profile"
+                    role="tab"
+                    aria-controls="profile"
+                    aria-selected="false"
+                    >Recruiter</a
+                  >
+                </li>
+              <% } %>
           </ul>
           <div class="tab-content" id="myTabContent">
+            <% if(!user.type) { %>
             <div
               class="tab-pane fade show active"
               id="home"
@@ -384,6 +416,263 @@
                 </div>
               </form>
             </div>
+            <% } %>
+            <% if(user.type == 'worker' ) { %>
+              <div
+              class="tab-pane fade show active"
+              id="home"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+            >
+              <h3 class="register-heading">Apply as Worker</h3>
+              <!-- first form -->
+              <form action="/user-worker" method="POST">
+                <div class="row register-form">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="username"
+                        placeholder="Name"
+                        readonly
+                        value=<%= user.username %>
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        class="form-control"
+                        name="email"
+                        placeholder="Email"
+                        readonly
+                        value=<%= user.email %>
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        minlength="10"
+                        maxlength="10"
+                        name="contact1"
+                        placeholder="Primary Contact Number"
+                        required
+                        class="form-control"
+                        <% if(user.contact1) { %>
+                          value=<%= user.contact1 %>
+                        <% } %>
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label class="jobslabel"
+                        >Choose your preferred jobs</label
+                      >
+                      <div class="checkbox">
+                        <input type="checkbox" id="checkbox" name="painter" value="" />
+                        <label for="checkbox"><span>Painter</span></label>
+                      </div>
+
+                      <div class="checkbox">
+                        <input
+                          type="checkbox"
+                          id="checkbox2"
+                          name="watchman"
+                          value=""
+                        />
+                        <label for="checkbox2"><span>Watchman</span></label>
+                      </div>
+                      <div class="checkbox">
+                        <input
+                          type="checkbox"
+                          id="checkbox3"
+                          name="gardener"
+                          value=""
+                        />
+                        <label for="checkbox3"><span>Gardener</span></label>
+                      </div>
+
+                      <div class="checkbox">
+                        <input
+                          type="checkbox"
+                          id="checkbox4"
+                          name="maid"
+                          value=""
+                        />
+                        <label for="checkbox4"><span>Maid</span></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="address"
+                        placeholder="Address"
+                        required
+                        <% if(user.address) { %>
+                          value=<%= user.address %>
+                        <% } %>
+                      />
+                    </div>
+                    <div class="form-group">
+                      <div class="maxl">
+                        <label class="radio inline">
+                          <input
+                            type="radio"
+                            name="gender"
+                            value="male"
+                            <% if(user.gender=='male' || !user.gender) { %>
+                              checked
+                            <% } %>
+                          />
+                          <span> Male &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="radio inline">
+                          <input type="radio" 
+                          name="gender" 
+                          value="female" 
+                          <% if(user.gender=="female") { %>
+                            checked
+                          <% } %>/>
+                          <span>Female </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        minlength="10"
+                        maxlength="10"
+                        name="contact2"
+                        placeholder="Secondary Contact Number"
+                        class="form-control"
+                        <% if(user.contact2) { %>
+                          value=<%= user.contact2 %>
+                        <% } %>
+                      />
+                    </div>
+                    <input
+                      type="submit"
+                      class="btnRegister"
+                      value="Update Profile"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+            <% } %>
+            <% if(user.type == 'rectuiter' ) { %>
+              <div
+              class="tab-pane fade show"
+              id="profile"
+              role="tabpanel"
+              aria-labelledby="profile-tab"
+            >
+              <h3 class="register-heading">Apply as Recruiter</h3>
+              <!-- second form -->
+              <form action="/user-recruiter" method="POST">
+                <div class="row register-form margin-second-form">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="username"
+                        placeholder="Name"
+                        readonly
+                        value=<%= user.username %>
+                      />
+                    </div>
+                    
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        class="form-control"
+                        name="email"
+                        placeholder="Email"
+                        required
+                        readonly
+                          value=<%= user.email %>
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        minlength="10"
+                        maxlength="10"
+                        name="contact1"
+                        placeholder="Primary Contact Number"
+                        required
+                        class="form-control"
+                        <% if(user.contact1) { %>
+                          value=<%= user.contact1 %>
+                        <% } %>
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="address"
+                        placeholder="Address"
+                        required
+                        <% if(user.address) { %>
+                          value=<%= user.address %>
+                        <% } %>
+                      />
+                    </div>
+                    <div class="form-group">
+                      <div class="maxl">
+                        <label class="radio inline">
+                          <input
+                            type="radio"
+                            name="gender"
+                            value="male"
+                            <% if(user.gender=='male' || !user.gender) { %>
+                              checked
+                            <% } %>
+                          />
+                          <span> Male &nbsp;&nbsp;</span>
+                        </label>
+                        <label class="radio inline">
+                          <input type="radio" 
+                          name="gender" 
+                          value="female" 
+                          <% if(user.gender=="female") { %>
+                            checked
+                          <% } %>/>
+                          <span>Female </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        minlength="10"
+                        maxlength="10"
+                        name="contact2"
+                        placeholder="Secondary Contact Number"
+                        class="form-control"
+                        <% if(user.contact2) { %>
+                          value=<%= user.contact2 %>
+                        <% } %>
+                      />
+                    </div>
+                    <input
+                      type="submit"
+                      class="btnRegister"
+                      value="Update Profile"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+            <% } %>
           </div>
         </div>
       </div>
