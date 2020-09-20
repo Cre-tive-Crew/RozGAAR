@@ -39,6 +39,9 @@ app.get('/',(req,res)=>{
     res.render('home',{user:req.user})
 })
 
+app.get('/*',(req,res)=>{
+    res.render('error')
+})
 app.listen(port,() =>{
     console.log('Server is up on',port)
 })

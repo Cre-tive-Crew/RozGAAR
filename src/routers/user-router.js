@@ -85,7 +85,7 @@ router.post('/users/dashboard/filter',authCheck , profileCheck , async (req,res)
     }
     if(req.user.type == "worker"){
         const jobs = await Job.find({})
-        const fitjobs= jobs.filter((job)=> req.user.jobTypes.includes(job.jobType))
+        const fitjobs= jobs
         const filteredjobs = fitjobs.filter((job)=> (filters.includes(job.jobType)))
         res.render('dashboard',{ jobs:filteredjobs ,user:req.user})
      }
